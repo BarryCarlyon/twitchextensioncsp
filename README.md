@@ -38,9 +38,9 @@ The following options are available and can be passed to `twitchextensioncsp`
 | ------ | -------- | ---- | ------- | ----- |
 | clientID | Yes | String | Error Thrown | Your Extension Client ID, technically not needed for "testing" but makes your CSP more accurate to Hosted Test and above |
 | enableRig | No | Boolean | `false` | If you are testing in the Twitch Extension Developer Rig, you will need to add additional items to the CSP for the Rig |
-| imgSrc | No | Array of Strings | * |
-| mediaSrc | No | Array of Strings | * |
-| connectSrc | No | Array of Strings | * |
+| imgSrc | No | Array of Strings | - | See Below |
+| mediaSrc | No | Array of Strings | - | See Below |
+| connectSrc | No | Array of Strings | - | See Below |
 
 All of `imgSrc`, `mediaSrc`, `connectSrc` accept an array of Strings. Generally this will be domain names and/or full paths to match what is required for a valid content security policy.
 
