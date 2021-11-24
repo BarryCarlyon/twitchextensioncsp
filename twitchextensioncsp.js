@@ -3,7 +3,7 @@ const helmet = require('helmet');
 twitchextensioncsp = Object.assign(
     function twitchextensioncsp(options) {
         let {
-            client_id,
+            clientID,
             enableRig,
             reportUri,
 
@@ -12,8 +12,8 @@ twitchextensioncsp = Object.assign(
             connectSrc
         } = options;
 
-        if (!client_id) {
-            throw new Error('TwitchExtensionCSP Missing ClientID in options');
+        if (!clientID) {
+            throw new Error('TwitchExtensionCSP Missing ClientID in passed options');
         }
         enableRig = enableRig ? true : false;
 
@@ -21,18 +21,18 @@ twitchextensioncsp = Object.assign(
             directives: {
                 defaultSrc: [
                     "'self'",
-                    `https://${client_id}.ext-twitch.tv`
+                    `https://${clientID}.ext-twitch.tv`
                 ],
                 connectSrc: [
                     "'self'",
-                    `https://${client_id}.ext-twitch.tv`,
+                    `https://${clientID}.ext-twitch.tv`,
                     'https://extension-files.twitch.tv',
                     'https://www.google-analytics.com',
                     'https://stats.g.doubleclick.net'
                 ],
                 fontSrc:    [
                     "'self'",
-                    `https://${client_id}.ext-twitch.tv`,
+                    `https://${clientID}.ext-twitch.tv`,
                     'https://fonts.googleapis.com',
                     'https://fonts.gstatic.com'
                 ],
@@ -48,7 +48,7 @@ twitchextensioncsp = Object.assign(
                 ],
                 scriptSrc:  [
                     "'self'",
-                    `https://${client_id}.ext-twitch.tv`,
+                    `https://${clientID}.ext-twitch.tv`,
                     'https://extension-files.twitch.tv',
                     'https://www.google-analytics.com',
                     'https://stats.g.doubleclick.net'
@@ -56,7 +56,7 @@ twitchextensioncsp = Object.assign(
                 styleSrc:   [
                     "'self'",
                     "'unsafe-inline'",
-                    `https://${client_id}.ext-twitch.tv`,
+                    `https://${clientID}.ext-twitch.tv`,
                     'https://fonts.googleapis.com'
                 ],
 
