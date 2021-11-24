@@ -73,10 +73,10 @@ twitchextensioncsp = Object.assign(
         }
 
         if (enableRig) {
-            contentSecurityPolicy.directives.connectSrc.concat(
+            contentSecurityPolicy.directives.connectSrc = contentSecurityPolicy.directives.connectSrc.concat(
                 'wss://pubsub-edge.twitch.tv'
             );
-            contentSecurityPolicy.directives.frameAncestors.concat(
+            contentSecurityPolicy.directives.frameAncestors = contentSecurityPolicy.directives.frameAncestors.concat(
                 'http://localhost:*',
                 'file://*',
                 'filesystem:'
