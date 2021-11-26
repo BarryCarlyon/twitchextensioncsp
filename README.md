@@ -38,6 +38,8 @@ The following options are available and can be passed to `twitchextensioncsp`
 | ------ | -------- | ---- | ------- | ----- |
 | clientID | Yes | String | Error Thrown | Your Extension Client ID, technically not needed for "testing" but makes your CSP more accurate to Hosted Test and above |
 | enableRig | No | Boolean | `false` | If you are testing in the Twitch Extension Developer Rig, you will need to add additional items to the CSP for the Rig |
+| enableMobile | No | Boolean | `false` | If you are testing on mobile, CSP also needs Twitch PubSub added to the list |
+| reportUri | No | URL | '' | Setup a URL to have CSP Error Reports Posted to |
 | imgSrc | No | Array of Strings | - | See Below |
 | mediaSrc | No | Array of Strings | - | See Below |
 | connectSrc | No | Array of Strings | - | See Below |
@@ -132,6 +134,47 @@ app.use(twitchextensioncsp({
         'wss://socket.example.com'
     ]
 }));
+
+app.use('/extension/', express.static(__dirname + '/build/'));
+```
+
+- Example 4
+
+A Basic CSP with a reportURI, including a reportURI Handler.
+This server runs at `https://example.com` so the reportURI is set to the same server!
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.listen(8050, function () {
+    console.log('booted express on 8050');
+});
+
+const twitchextensioncsp = require('twitchextensioncsp');
+app.use(twitchextensioncsp({
+    clientID: '123123123',
+    imgSrc: [
+        'static-cdn.jtvnw.net'
+    ],
+    connectSrc: [
+        'api.twitch.tv',
+        'https://api.example.com',
+        'wss://socket.example.com'
+    ],
+    reportUri: 'https://example.com/csp/'
+}));
+
+/*
+This will capture any CSP Report and dump log it to console
+*/
+app.post('/csp/', express.json({
+    type: 'application/csp-report'
+}), (req,res) => {
+    console.log(req.body);
+
+    res.send('Ok');
+});
 
 app.use('/extension/', express.static(__dirname + '/build/'));
 ```

@@ -5,6 +5,8 @@ twitchextensioncsp = Object.assign(
         let {
             clientID,
             enableRig,
+            enableMobile,
+
             reportUri,
 
             imgSrc,
@@ -72,10 +74,18 @@ twitchextensioncsp = Object.assign(
             }
         }
 
-        if (enableRig) {
+        if (enableMobile) {
             contentSecurityPolicy.directives.connectSrc = contentSecurityPolicy.directives.connectSrc.concat(
                 'wss://pubsub-edge.twitch.tv'
             );
+        }
+
+        if (enableRig) {
+            if (!enableMobile) {
+                contentSecurityPolicy.directives.connectSrc = contentSecurityPolicy.directives.connectSrc.concat(
+                    'wss://pubsub-edge.twitch.tv'
+                );
+            }
             contentSecurityPolicy.directives.frameAncestors = contentSecurityPolicy.directives.frameAncestors.concat(
                 'http://localhost:*',
                 'file://*',
