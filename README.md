@@ -54,7 +54,7 @@ You can read more about Content Security Policy over on [MDN](https://developer.
 
 ## Caputring CSP Reports
 
-A CSP Report is a JSON payload. But it's a JSON Payload with a "custom" `Content Type` header of `application/csp-report`.
+A CSP Report is a JSON payload, with a "custom" `Content Type` header of `application/csp-report`.
 
 To capture this in Express you'll need to tell `express.json` to run on a Custom `Content Type`
 
