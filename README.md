@@ -23,7 +23,7 @@ app.listen(8050, function () {
 const twitchextensioncsp = require('twitchextensioncsp');
 app.use(twitchextensioncsp({
     clientID: 'abcdefg123456'
-});
+}));
 
 app.use('/extension/', express.static(__dirname + '/build/'));
 ```
