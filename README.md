@@ -52,9 +52,9 @@ You can read more about Content Security Policy over on [MDN](https://developer.
 
 *NOTE*: whilst you could define `connectSrc` as the schemasless/valud `test.example.com` but in some browsers this will not match `wss` as well as `https` so you are advised to specify the schema to be on the safe side. See example 3.
 
-## Caputring CSP Reports
+## Capturing CSP Reports
 
-A CSP Report is a JSON payload, with a "custom" `Content Type` header of `application/csp-report`.
+A CSP Report is a POSTed JSON payload, with a "custom" `Content Type` header of `application/csp-report`.
 
 To capture this in Express you'll need to tell `express.json` to run on a Custom `Content Type`
 
