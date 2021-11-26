@@ -37,8 +37,8 @@ The following options are available and can be passed to `twitchextensioncsp`
 | Option | Required | Type | Default | Notes |
 | ------ | -------- | ---- | ------- | ----- |
 | clientID | Yes | String | Error Thrown | Your Extension Client ID, technically not needed for "testing" but makes your CSP more accurate to Hosted Test and above |
-| enableRig | No | Boolean | `false` | If you are testing in the Twitch Extension Developer Rig, you will need to add additional items to the CSP for the Rig |
 | enableMobile | No | Boolean | `false` | If you are testing on mobile, CSP also needs Twitch PubSub added to the list |
+| enableRig | No | Boolean | `false` | If you are testing in the Twitch Extension Developer Rig, you will need to add additional items to the CSP for the Rig |
 | reportUri | No | URL | '' | Setup a URL to have CSP Error Reports Posted to |
 | imgSrc | No | Array of Strings | - | See Below |
 | mediaSrc | No | Array of Strings | - | See Below |

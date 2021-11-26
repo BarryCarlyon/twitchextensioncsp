@@ -4,8 +4,9 @@ twitchextensioncsp = Object.assign(
     function twitchextensioncsp(options) {
         let {
             clientID,
-            enableRig,
+
             enableMobile,
+            enableRig,
 
             reportUri,
 
@@ -15,8 +16,10 @@ twitchextensioncsp = Object.assign(
         } = options;
 
         if (!clientID) {
-            throw new Error('TwitchExtensionCSP Missing ClientID in passed options');
+            throw new Error('TwitchExtensionCSP Missing Required ClientID in passed options');
         }
+
+        enableMobile = enableMobile ? true : false;
         enableRig = enableRig ? true : false;
 
         let contentSecurityPolicy = {
@@ -81,11 +84,14 @@ twitchextensioncsp = Object.assign(
         }
 
         if (enableRig) {
+            // only add pubsub, if we didn't already
             if (!enableMobile) {
                 contentSecurityPolicy.directives.connectSrc = contentSecurityPolicy.directives.connectSrc.concat(
                     'wss://pubsub-edge.twitch.tv'
                 );
             }
+            // the rig is an electron app
+            // hence filesystem..
             contentSecurityPolicy.directives.frameAncestors = contentSecurityPolicy.directives.frameAncestors.concat(
                 'http://localhost:*',
                 'file://*',
