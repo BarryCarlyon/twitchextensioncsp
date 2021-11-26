@@ -58,7 +58,7 @@ A CSP Report is a JSON payload, with a "custom" `Content Type` header of `applic
 
 To capture this in Express you'll need to tell `express.json` to run on a Custom `Content Type`
 
-```
+```javascript
 app.post('/csp/', express.json({
     type: 'application/csp-report'
 }), (req,res) => {
