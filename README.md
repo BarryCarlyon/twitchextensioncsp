@@ -199,4 +199,4 @@ app.use('/extension/', express.static(__dirname + '/build/'));
 
 ### V.1.0.3
 
-- Disable helmet's `frameguard` and `xssFilter`, frameguard was blocking loading. This is now more similar to Twitch's current structure. Likely a browser update caused frameguard to change operation...
+- Disable helmet's `frameguard` and `xssFilter`, frameguard was blocking loading. This is now more similar to Twitch's current structure.
