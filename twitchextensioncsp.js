@@ -114,7 +114,9 @@ twitchextensioncsp = Object.assign(
         }
 
         return helmet({
-            contentSecurityPolicy
+            contentSecurityPolicy,
+            frameguard: false,
+            xssFilter: false
         })
     }
 );
