@@ -6,7 +6,7 @@ For Twitch Extension Development, you can provide a "local static" server to ser
 
 It uses [Helmet](https://github.com/helmetjs/helmet) under the hood.
 
-## Quick Start£
+## Quick Start
 
 The minimum is to provide your Extension Client ID.
 
@@ -199,4 +199,4 @@ app.use('/extension/', express.static(__dirname + '/build/'));
 
 ### V.1.0.3
 
-- Disable helmet's `frameguard` and `xssFilter`, frameguard was blocking loading. This is now more similar to Twitch's current structure.
+- Disable helmet's `frameguard` and `xssFilter`, frameguard was blocking loading. This is now more similar to Twitch's current structure. Likely a browser update caused frameguard to change operation...
