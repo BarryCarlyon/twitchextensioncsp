@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.listen(8052, function () {
-    console.log('booted express on 8052');
+app.listen(8050, function () {
+    console.log('booted express on 8050');
 });
 
 const twitchextensioncsp = require(__dirname + '/../twitchextensioncsp.js');
