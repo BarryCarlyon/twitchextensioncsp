@@ -17,7 +17,25 @@ app.use(twitchextensioncsp({
     ],
     connectSrc: [
         'https://api.example.com'
-    ]
+    ],
+    reportUri: 'https://OMMITTED/csp/'
 }));
+
+app.use((req,res,next) => {
+    console.log('Loading', req.originalUrl);
+    next();
+});
+
+app.post('/csp/', express.json({
+    type: 'application/csp-report'
+}), (req,res) => {
+    res.send('Ok');
+
+    if (req.body.hasOwnProperty('csp-report')) {
+        console.error(req.body['csp-report']['blocked-uri'], 'blocked by', req.body['csp-report']['violated-directive'], 'in', req.body['csp-report']['source-file']);
+        return;
+    }
+    console.log(req.body);
+});
 
 app.use('/', express.static(__dirname));

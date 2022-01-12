@@ -115,6 +115,11 @@ twitchextensioncsp = Object.assign(
 
         return helmet({
             contentSecurityPolicy,
+
+            crossOriginEmbedderPolicy: false,
+            crossOriginOpenerPolicy: false,
+            crossOriginResourcePolicy: false,
+
             frameguard: false,
             xssFilter: false
         })

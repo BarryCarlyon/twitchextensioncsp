@@ -187,15 +187,32 @@ This will capture any CSP Report and dump log it to console
 app.post('/csp/', express.json({
     type: 'application/csp-report'
 }), (req,res) => {
-    console.log(req.body);
-
     res.send('Ok');
+
+    console.log(req.body);
 });
 
 app.use('/extension/', express.static(__dirname + '/build/'));
 ```
 
+An Alternative CSP Report handler, instead of brain dumping the _WHOLE_ report this should extract the relevant message in a more friendly way
+
+```javascript
+    res.send('Ok');
+
+    if (req.body.hasOwnProperty('csp-report')) {
+        console.error(req.body['csp-report']['blocked-uri'], 'blocked by', req.body['csp-report']['violated-directive'], 'in', req.body['csp-report']['source-file']);
+        return;
+    }
+    console.log(req.body);
+```
+
 ## Change Log
+
+### V.1.0.4
+- Update Helmet to v5.0.1
+- Change Defaults as needed to account for Helmet's new Defaults
+- Some Readme tweaks and changes
 
 ### V.1.0.3
 
