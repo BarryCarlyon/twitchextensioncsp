@@ -204,7 +204,12 @@ app.post('/csp/', express.json({
     res.send('Ok');
 
     if (req.body.hasOwnProperty('csp-report')) {
-        console.error(req.body['csp-report']['blocked-uri'], 'blocked by', req.body['csp-report']['violated-directive'], 'in', req.body['csp-report']['source-file']);
+        console.error(
+            "%s blocked by %s in %s",
+            req.body['csp-report']['blocked-uri'],
+            req.body['csp-report']['violated-directive'],
+            req.body['csp-report']['source-file']
+        );
         return;
     }
     console.log(req.body);
