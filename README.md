@@ -198,6 +198,9 @@ app.use('/extension/', express.static(__dirname + '/build/'));
 An Alternative CSP Report handler, instead of brain dumping the _WHOLE_ report this should extract the relevant message in a more friendly way
 
 ```javascript
+app.post('/csp/', express.json({
+    type: 'application/csp-report'
+}), (req,res) => {
     res.send('Ok');
 
     if (req.body.hasOwnProperty('csp-report')) {
@@ -205,6 +208,8 @@ An Alternative CSP Report handler, instead of brain dumping the _WHOLE_ report t
         return;
     }
     console.log(req.body);
+});
+
 ```
 
 ## Change Log
