@@ -30,6 +30,8 @@ app.use('/extension/', express.static(__dirname + '/build/'));
 
 This will provide, a Static Server, serving the content from `/build/` on the endpoint `/extension/` and uses `twitchextensioncsp` to define and add Content Security Policy headers.
 
+This makes the Test server more analogous to Twitch Extensions Hosted test and Release. The CDN is on a subdomain of Twitch and your files are in a sub folder of that domain not the base/root of the domain.
+
 ## Options
 
 The following options are available and can be passed to `twitchextensioncsp`
