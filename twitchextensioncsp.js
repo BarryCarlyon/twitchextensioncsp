@@ -5,7 +5,6 @@ twitchextensioncsp = Object.assign(
         let {
             clientID,
 
-            enableMobile,
             enableRig,
 
             reportUri,
