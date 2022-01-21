@@ -224,7 +224,7 @@ app.post('/csp/', express.json({
 
 ## Change Log
 
-### V.1.1.9
+### V.1.1.0
 
 - Updated the Base CSP to match what [Twitch reports](https://discuss.dev.twitch.tv/t/new-extensions-policy-for-content-security-policy-csp-directives-and-timeline-for-enforcement/33695/8) that it will be using
 - Removed `enableMobile` as this enabled `wss://pubsub-edge.twitch.tv` into `connectSrc` for just mobile testing, but this is now a "base rule" regardless of integration slot
