@@ -53,7 +53,7 @@ These three items "mirror" the three fields in the Capabilities tab of a Version
 
 You can read more about Content Security Policy over on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) and the various requirements for the fields.
 
-You can test your CSP using [Security Headers](https://securityheaders.com/)
+You can test your CSP using [Security Headers](https://securityheaders.com/). Naturally this means that your Server needs to be behind SSL and accessable to the outside world! Which is generally better for testing with anyway!
 
 *NOTE*: whilst you could define `connectSrc` as the schemasless/valud `test.example.com` but in some browsers this will not match `wss` as well as `https` so you are advised to specify the schema to be on the safe side. See example 3.
 
