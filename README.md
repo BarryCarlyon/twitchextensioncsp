@@ -37,18 +37,21 @@ The following options are available and can be passed to `twitchextensioncsp`
 | Option | Required | Type | Default | Notes |
 | ------ | -------- | ---- | ------- | ----- |
 | clientID | Yes | String | Error Thrown | Your Extension Client ID, technically not needed for "testing" but makes your CSP more accurate to Hosted Test and above |
-| enableMobile | No | Boolean | `false` | If you are testing on mobile, CSP also needs Twitch PubSub added to the list |
 | enableRig | No | Boolean | `false` | If you are testing in the Twitch Extension Developer Rig, you will need to add additional items to the CSP for the Rig |
 | reportUri | No | URL | '' | Setup a URL to have CSP Error Reports Posted to |
 | imgSrc | No | Array of Strings | - | See Below |
 | mediaSrc | No | Array of Strings | - | See Below |
 | connectSrc | No | Array of Strings | - | See Below |
 
-All of `imgSrc`, `mediaSrc`, `connectSrc` accept an array of Strings. Generally this will be domain names and/or full paths to match what is required for a valid content security policy.
+All of `imgSrc`, `mediaSrc`, `connectSrc` accept an array of Strings, (or an array of a space seperated URLsm please refer to the [Helmet](https://github.com/helmetjs/helmet) documentation or [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)).
+
+Generally this will be domain names and/or full paths to match what is required for a valid content security policy.
 
 These three items "mirror" the three fields in the Capabilities tab of a Version of an Extension.
 
 You can read more about Content Security Policy over on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) and the various requirements for the fields.
+
+You can test your CSP using [Security Headers](https://securityheaders.com/)
 
 *NOTE*: whilst you could define `connectSrc` as the schemasless/valud `test.example.com` but in some browsers this will not match `wss` as well as `https` so you are advised to specify the schema to be on the safe side. See example 3.
 
@@ -218,6 +221,11 @@ app.post('/csp/', express.json({
 ```
 
 ## Change Log
+
+### V.1.1.9
+
+- Updated the Base CSP to match what [Twitch reports](https://discuss.dev.twitch.tv/t/new-extensions-policy-for-content-security-policy-csp-directives-and-timeline-for-enforcement/33695/8) that it will be using
+- Removed `enableMobile` as this enabled `wss://pubsub-edge.twitch.tv` into `connectSrc` for just mobile testing, but this is now a "base rule" regardless of integration slot
 
 ### V.1.0.4
 - Update Helmet to v5.0.1

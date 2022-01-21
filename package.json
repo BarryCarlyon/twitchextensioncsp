@@ -1,6 +1,6 @@
 {
   "name": "twitchextensioncsp",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "An easy way to add a CSP/Content Security Policy to an Express Server for Twitch Extension Development and Testing",
   "main": "twitchextensioncsp.js",
   "scripts": {

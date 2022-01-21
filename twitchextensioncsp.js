@@ -19,7 +19,6 @@ twitchextensioncsp = Object.assign(
             throw new Error('TwitchExtensionCSP Missing Required ClientID in passed options');
         }
 
-        enableMobile = enableMobile ? true : false;
         enableRig = enableRig ? true : false;
 
         let contentSecurityPolicy = {
@@ -31,7 +30,8 @@ twitchextensioncsp = Object.assign(
                 connectSrc: [
                     "'self'",
                     `https://${clientID}.ext-twitch.tv`,
-                    'https://extension-files.twitch.tv',
+                    'https://api.twitch.tv',
+                    'wss://pubsub-edge.twitch.tv',
                     'https://www.google-analytics.com',
                     'https://stats.g.doubleclick.net'
                 ],
@@ -43,11 +43,14 @@ twitchextensioncsp = Object.assign(
                 ],
                 imgSrc:     [
                     "'self'",
+                    `https://${clientID}.ext-twitch.tv`,
+                    'https://www.google-analytics.com',
                     'data:',
                     'blob:'
                 ],
                 mediaSrc:   [
                     "'self'",
+                    `https://${clientID}.ext-twitch.tv`,
                     'data:',
                     'blob:'
                 ],
@@ -55,8 +58,7 @@ twitchextensioncsp = Object.assign(
                     "'self'",
                     `https://${clientID}.ext-twitch.tv`,
                     'https://extension-files.twitch.tv',
-                    'https://www.google-analytics.com',
-                    'https://stats.g.doubleclick.net'
+                    'https://www.google-analytics.com'
                 ],
                 styleSrc:   [
                     "'self'",
@@ -77,19 +79,7 @@ twitchextensioncsp = Object.assign(
             }
         }
 
-        if (enableMobile) {
-            contentSecurityPolicy.directives.connectSrc = contentSecurityPolicy.directives.connectSrc.concat(
-                'wss://pubsub-edge.twitch.tv'
-            );
-        }
-
         if (enableRig) {
-            // only add pubsub, if we didn't already
-            if (!enableMobile) {
-                contentSecurityPolicy.directives.connectSrc = contentSecurityPolicy.directives.connectSrc.concat(
-                    'wss://pubsub-edge.twitch.tv'
-                );
-            }
             // the rig is an electron app
             // hence filesystem..
             contentSecurityPolicy.directives.frameAncestors = contentSecurityPolicy.directives.frameAncestors.concat(
