@@ -224,6 +224,10 @@ app.post('/csp/', express.json({
 
 ## Change Log
 
+### V.1.1.2
+
+- We will not speak of this mistake...
+
 ### V.1.1.1
 
 - The Apocalypse happened and Twitch decided to add `http://static-cdn.jtvnw.net` to the Default `img-src`

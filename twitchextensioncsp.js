@@ -43,7 +43,7 @@ twitchextensioncsp = Object.assign(
                 imgSrc:     [
                     "'self'",
                     `https://${clientID}.ext-twitch.tv`,
-                    'http://static-cdn.jtvnw.net',
+                    'https://static-cdn.jtvnw.net',
                     'https://www.google-analytics.com',
                     'data:',
                     'blob:'
