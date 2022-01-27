@@ -45,7 +45,7 @@ The following options are available and can be passed to `twitchextensioncsp`
 | mediaSrc | No | Array of Strings | - | See Below |
 | connectSrc | No | Array of Strings | - | See Below |
 
-All of `imgSrc`, `mediaSrc`, `connectSrc` accept an array of Strings, (or an array of a space seperated URLsm please refer to the [Helmet](https://github.com/helmetjs/helmet) documentation or [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)).
+All of `imgSrc`, `mediaSrc`, `connectSrc` accept an array of Strings, (or an array of a space seperated URLs please refer to the [Helmet](https://github.com/helmetjs/helmet) documentation or [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)).
 
 Generally this will be domain names and/or full paths to match what is required for a valid content security policy.
 
@@ -223,6 +223,11 @@ app.post('/csp/', express.json({
 ```
 
 ## Change Log
+
+### V.1.1.1
+
+- The Apocalypse happened and Twitch decided to add `http://static-cdn.jtvnw.net` to the Default `img-src`
+- Updated helmet to 5.0.2
 
 ### V.1.1.0
 
