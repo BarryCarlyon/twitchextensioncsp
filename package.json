@@ -30,6 +30,6 @@
     "helmet": "^5.0.2"
   },
   "devDependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.3"
   }
 }

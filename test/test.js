@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.listen(8050, function () {
-    console.log('booted express on 8050');
+app.listen(8052, function () {
+    console.log('booted express on 8052');
 });
 
 const twitchextensioncsp = require(__dirname + '/../twitchextensioncsp.js');
@@ -18,7 +18,7 @@ app.use(twitchextensioncsp({
     connectSrc: [
         'https://api.example.com'
     ],
-    reportUri: 'REMOVED/csp/'
+    reportUri: 'https://extensionsctrl.testing.barrycarlyon.co.uk/csp/'
 }));
 
 app.use((req,res,next) => {
