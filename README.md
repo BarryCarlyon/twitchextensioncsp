@@ -224,6 +224,12 @@ app.post('/csp/', express.json({
 
 ## Change Log
 
+### V.1.1.3
+
+- Updated dependencies (helmet/express)
+- Added `block-all-mixed-content` inline with latest default src on Twitch
+- @todo check/debug just in case before NPM pushing
+
 ### V.1.1.2
 
 - We will not speak of this mistake...
