@@ -24,7 +24,8 @@ twitchextensioncsp = Object.assign(
             directives: {
                 defaultSrc: [
                     "'self'",
-                    `https://${clientID}.ext-twitch.tv`
+                    `https://${clientID}.ext-twitch.tv`,
+                    'block-all-mixed-content'
                 ],
                 connectSrc: [
                     "'self'",
