@@ -7,7 +7,7 @@ app.listen(8052, function () {
 
 const twitchextensioncsp = require(__dirname + '/../twitchextensioncsp.js');
 app.use(twitchextensioncsp({
-    clientID: '123123123',
+    clientID: 'bb5604h7y9b8b3bh6veoczaakanjzd',
     enableRig: true,
     imgSrc: [
         'https://images.example.com'
