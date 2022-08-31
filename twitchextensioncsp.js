@@ -21,11 +21,13 @@ twitchextensioncsp = Object.assign(
         enableRig = enableRig ? true : false;
 
         let contentSecurityPolicy = {
+            useDefaults: false,
             directives: {
+                blockAllMixedContent: [],
+
                 defaultSrc: [
                     "'self'",
-                    `https://${clientID}.ext-twitch.tv`,
-                    'block-all-mixed-content'
+                    `https://${clientID}.ext-twitch.tv`
                 ],
                 connectSrc: [
                     "'self'",
