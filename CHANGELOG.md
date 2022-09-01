@@ -2,7 +2,7 @@
 
 ## V1.2.0 - 2022-09-01
 
-- Updated dependencies for helmet to v6
+- Updated dependencies for helmet to v6, includes a min node version bump to 14 as a result
 - Tweaked the rules to match Twitch
 
 ## V.1.1.3 - Unreleased
