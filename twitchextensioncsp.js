@@ -48,8 +48,8 @@ twitchextensioncsp = Object.assign(
                     "'self'",
                     `https://${clientID}.ext-twitch.tv`,
                     'https://static-cdn.jtvnw.net',
-                    'https://*.google-analytics.com',
                     'https://www.googletagmanager.com',
+                    'https://*.google-analytics.com',
                     'data:',
                     'blob:'
                 ],
