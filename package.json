@@ -1,6 +1,6 @@
 {
   "name": "twitchextensioncsp",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "An easy way to add a CSP/Content Security Policy to an Express Server for Twitch Extension Development and Testing",
   "main": "twitchextensioncsp.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/BarryCarlyon/twitchextensioncsp#readme",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "keywords": [
     "csp",
@@ -27,7 +27,7 @@
     "twitch extensions"
   ],
   "dependencies": {
-    "helmet": "^6.0.1"
+    "helmet": "^7.0.0"
   },
   "devDependencies": {
     "express": "^4.18.2"
